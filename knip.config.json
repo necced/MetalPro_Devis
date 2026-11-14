@@ -1,0 +1,26 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": ["src/main.tsx", "vite.config.ts", "vitest.config.ts", "playwright.config.ts"],
+  "project": [
+    "src/**/*.{ts,tsx}",
+    "!src/test/**",
+    "!src/**/*.{test,spec}.{ts,tsx}",
+    "!src/vite-env.d.ts"
+  ],
+  "ignore": ["node_modules", "dist", "build", "coverage", ".vite", "e2e"],
+  "ignoreBinaries": ["vite", "vitest", "playwright", "knip"],
+  "ignoreDependencies": ["@fontsource/inter", "@types/react", "@types/react-dom"],
+  "rules": {
+    "files": "error",
+    "dependencies": "error",
+    "devDependencies": "error",
+    "exports": "error",
+    "nsExports": "error",
+    "types": "error",
+    "enumMembers": "error",
+    "classMembers": "error",
+    "unresolved": "off"
+  },
+  "eslint": true,
+  "stylelint": false
+}

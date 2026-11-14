@@ -1,0 +1,3 @@
+# Cloudflare Pages SPA Redirects
+# Permet le routing client-side (React Router) pour la PWA
+/* /index.html 200

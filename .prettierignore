@@ -1,0 +1,11 @@
+dist
+node_modules
+build
+.vite
+coverage
+*.lock
+*.log
+.DS_Store
+*.local
+public/*
+!public/index.html
