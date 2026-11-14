@@ -4,7 +4,9 @@
 [build]
   command = "npm run build"
   publish = "dist"
-  disable_hud = true
+
+[build.environment]
+  DISABLE_HUD = "true"
 
 [functions]
   node_bundler = "esbuild"
