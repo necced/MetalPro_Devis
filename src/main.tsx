@@ -5,18 +5,12 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App.tsx';
 
-// Use environment variable for basename, default to /metalpro-devis-mvp for production
-// In development, default to '/' for local testing
-const isDev = import.meta.env.DEV;
-const rawBasename = import.meta.env.VITE_BASENAME;
-const basename =
-  isDev && (!rawBasename || rawBasename.includes('Program Files'))
-    ? '/'
-    : rawBasename || '/metalpro-devis-mvp';
+// basename depuis variable d'environnement, défaut à '/' pour déploiement racine Netlify
+const basename = import.meta.env.VITE_BASENAME || '/';
 
 console.log('[main.tsx] Starting app with basename:', basename);
-console.log('[main.tsx] Raw VITE_BASENAME:', rawBasename);
-console.log('[main.tsx] DEV:', isDev);
+console.log('[main.tsx] Raw VITE_BASENAME:', import.meta.env.VITE_BASENAME);
+console.log('[main.tsx] DEV:', import.meta.env.DEV);
 console.log('[main.tsx] Root element:', document.querySelector('#root'));
 
 const root = createRoot(document.querySelector('#root')!);
