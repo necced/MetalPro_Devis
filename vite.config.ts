@@ -1,3 +1,4 @@
+import { readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -6,6 +7,10 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Read version from package.json at build time
+const package_ = JSON.parse(readFileSync(path.resolve(__dirname, 'package.json'), 'utf8'));
+const APP_VERSION = package_.version;
 
 // Disable PWA for test builds to avoid Windows workbox-build dynamic require issue
 const isTestBuild = process.env.VITE_TEST_BUILD === 'true';
@@ -132,6 +137,9 @@ const plugins = [
 
 export default defineConfig({
   base: '/',
+  define: {
+    __APP_VERSION__: JSON.stringify(APP_VERSION),
+  },
   plugins,
   resolve: {
     alias: {
