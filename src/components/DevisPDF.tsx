@@ -1,28 +1,10 @@
 import React from 'react';
-import { Document, Page, Text, View, StyleSheet, Font } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import { toFCFAValue, toFCFA } from '../shared/utils/decimal';
 import type { Devis, AppSettings } from '../types';
 
-// Register fonts for proper FCFA symbol and French characters
-Font.register({
-  family: 'Helvetica',
-  fonts: [
-    { src: 'https://cdn.jsdelivr.net/npm/@react-pdf/fonts@3.0.0/Helvetica/Helvetica-Regular.ttf' },
-    {
-      src: 'https://cdn.jsdelivr.net/npm/@react-pdf/fonts@3.0.0/Helvetica/Helvetica-Bold.ttf',
-      fontWeight: 'bold',
-    },
-    {
-      src: 'https://cdn.jsdelivr.net/npm/@react-pdf/fonts@3.0.0/Helvetica/Helvetica-Oblique.ttf',
-      fontStyle: 'italic',
-    },
-    {
-      src: 'https://cdn.jsdelivr.net/npm/@react-pdf/fonts@3.0.0/Helvetica/Helvetica-BoldOblique.ttf',
-      fontWeight: 'bold',
-      fontStyle: 'italic',
-    },
-  ],
-});
+// Standard PDF fonts (Helvetica, Times-Roman, Courier) are built into PDFKit/@react-pdf/renderer
+// No Font.register() needed - they work out of the box
 
 interface DevisPDFProps {
   devis: Devis;
