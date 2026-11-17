@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { renderToStream } from '@react-pdf/renderer';
 import { DevisPDF } from '../components/DevisPDF';
 import type { Devis, AppSettings } from '../types';

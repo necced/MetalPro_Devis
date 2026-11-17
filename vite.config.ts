@@ -144,6 +144,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      // Force browser build of @react-pdf/renderer (v3 has separate browser/Node builds)
+      '@react-pdf/renderer': path.resolve(
+        __dirname,
+        './node_modules/@react-pdf/renderer/lib/react-pdf.browser.js'
+      ),
     },
   },
   optimizeDeps: {
