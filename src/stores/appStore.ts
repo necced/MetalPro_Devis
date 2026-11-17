@@ -41,6 +41,7 @@ const defaultSettings: AppSettings = {
   devise: 'FCFA',
   numeroDevisPrefix: 'DEV',
   tvaDefaultRate: 0.1925,
+  tvaDefaultMode: 'avec',
   theme: 'system',
 };
 
