@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client';
 
 import './index.css';
 import App from './App.tsx';
+import { initializeDatabase } from './db';
 
 // basename depuis variable d'environnement, défaut à '/' pour déploiement racine Netlify
 const basename = import.meta.env.VITE_BASENAME || '/';
@@ -97,6 +98,9 @@ function checkVersionAndMaybeRecover(): void {
 
 // Run version check BEFORE React renders
 checkVersionAndMaybeRecover();
+
+// Initialize database (opens IndexedDB connection)
+initializeDatabase().catch(err => console.error('[main.tsx] Database initialization failed:', err));
 
 const root = createRoot(document.querySelector('#root')!);
 console.log('[main.tsx] Root created, rendering...');
